@@ -14,6 +14,7 @@ export const fetchAllItems = async (dispatch, getState) => {
   try {
     const res = await axios.get(`${apiUrl}/items`);
     console.log(res.data);
+    dispatch(itemsFetched(res.data));
   } catch (e) {
     console.log(e.message);
   }
