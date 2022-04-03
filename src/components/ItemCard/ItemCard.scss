@@ -1,0 +1,83 @@
+.card-container {
+  background-color: white;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+
+  .card-img {
+    display: flex;
+    justify-content: center;
+
+    img {
+      width: 200px;
+      height: 300px;
+      object-fit: cover;
+    }
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      margin: 0;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+
+      li {
+        list-style-type: none;
+
+        button {
+          background-color: #ea4c89;
+          border-radius: 20px;
+          border-style: none;
+          box-sizing: border-box;
+          color: #ffffff;
+          display: inline-block;
+          font-size: 14px;
+          font-weight: 500;
+          height: 40px;
+          line-height: 20px;
+          list-style: none;
+          margin: 0;
+          outline: none;
+          padding: 10px 16px;
+          transition: color 100ms;
+          vertical-align: baseline;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+        }
+
+        button:hover,
+        button:focus {
+          background-color: #f082ac;
+        }
+      }
+    }
+  }
+  .purchased {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.card-container:hover,
+.card-container:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.card-container:hover {
+  transform: translateY(-1px);
+}
