@@ -5,22 +5,25 @@ export default function ItemCard(props) {
   const { items } = props;
 
   return (
-    <div>
+    <div className="item-container">
       {items.map((item) => (
         <div className="card-container" key={item.id}>
           <div className="card-img">
             <img src={item.imgUrl} alt={item.title} />
           </div>
-          <p>{item.description}</p>
+          <h3>{item.title}</h3>
+          <p>{item.details}</p>
           <div className="details">
             <p>
               <strong>Buy Directly From</strong>
             </p>
             <ul>
               <li>{item.shortUrl}</li>
-              <li>{item.price}</li>
+              <li>€{item.price}</li>
               <li>
-                <button>Buy</button>
+                <a target="_blank" rel="noreferrer" href={item.itemUrl}>
+                  <button>Buy</button>
+                </a>
               </li>
             </ul>
           </div>
