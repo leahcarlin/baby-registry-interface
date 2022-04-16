@@ -43,7 +43,7 @@
         list-style-type: none;
 
         button {
-          background-color: #ea4c89;
+          background-color: #ee7674;
           border-radius: 20px;
           border-style: none;
           box-sizing: border-box;
@@ -66,13 +66,27 @@
 
         button:hover,
         button:focus {
-          background-color: #f082ac;
+          background-color: #f9b5ac;
         }
       }
     }
   }
   .purchased {
     display: flex;
+    justify-content: center;
+
+    input {
+      margin-right: 10px;
+    }
+  }
+  .modal {
+    position: fixed;
+    left: 0;
+    right: 0;
+    // top: 0;
+    // bottom: 0;
+    display: flex;
+    align-items: center;
     justify-content: center;
   }
 }

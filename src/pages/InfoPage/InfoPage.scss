@@ -15,9 +15,16 @@
     justify-content: center;
     align-items: center;
 
+    .divider {
+      background-color: #69995d;
+      padding: 2px;
+      border-radius: 10px;
+      width: 20%;
+    }
+
     .instructions {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: center;
       width: 100%;
       margin: 5px 0;
@@ -34,8 +41,37 @@
         svg {
           width: 100%;
           height: auto;
+          color: #ee7674;
         }
       }
+    }
+
+    button {
+      background-color: #ee7674;
+      border-radius: 20px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      height: 40px;
+      line-height: 20px;
+      list-style: none;
+      margin: 0;
+      outline: none;
+      padding: 10px 16px;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      margin-top: 20px;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #f9b5ac;
     }
   }
 }
@@ -50,7 +86,7 @@
           width: 30%;
         }
         .svg-container {
-          width: 100px;
+          width: 80px;
         }
       }
     }

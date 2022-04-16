@@ -1,5 +1,6 @@
 import React from "react";
 import "./InfoPage.scss";
+import { Link } from "react-router-dom";
 
 export default function InfoPage() {
   return (
@@ -24,7 +25,7 @@ export default function InfoPage() {
             <p>
               Clicking the 'Buy' button from the Registry page will take you
               directly to the website where you can purchase the item(s). Make
-              sure you open the link in <u>Google Chrome</u>.
+              sure you open the link in <strong>Google Chrome</strong>.
             </p>
           </div>
           <div className="svg-container">
@@ -40,6 +41,7 @@ export default function InfoPage() {
             </svg>
           </div>
         </div>
+        <div className="divider"></div>
         <div className="instructions">
           <div className="svg-container">
             <svg
@@ -58,12 +60,16 @@ export default function InfoPage() {
             <h3>Translate Website</h3>
             <p>
               By default, Chrome offers to translate pages written in a language
-              you don't understand. You can translate either by clicking
-              'Translate' at the top or by right-clicking anywhere on the page
-              then, 'Translate to English'.
+              you don't understand. You can translate either by{" "}
+              <strong>clicking 'Translate' at the top</strong> or by{" "}
+              <strong>
+                right-clicking anywhere on the page then, 'Translate to
+                English'.
+              </strong>
             </p>
           </div>
         </div>
+        <div className="divider"></div>
         <div className="instructions">
           <div className="text">
             <h3>Enter our Address at Checkout</h3>
@@ -93,6 +99,7 @@ export default function InfoPage() {
             </svg>
           </div>
         </div>
+        <div className="divider"></div>
         <div className="instructions">
           <div className="svg-container">
             <svg
@@ -115,6 +122,9 @@ export default function InfoPage() {
             </p>
           </div>
         </div>
+        <Link to="/registry">
+          <button>Take me to the Registry</button>
+        </Link>
       </div>
     </div>
   );
