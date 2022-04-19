@@ -1,19 +1,26 @@
 import React from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllItems } from "../../store/item/actions";
 import { selectAllItems } from "../../store/item/selectors";
 import ItemCard from "../../components/ItemCard";
+import Modal from "../../components/Modal";
 import "./RegistryPage.scss";
 
 export default function RegistryPage() {
   const dispatch = useDispatch();
   const items = useSelector(selectAllItems);
-  console.log("item", items);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllItems);
   }, [dispatch]);
+
+  // const showModal = () => {
+  //   console.log("show?", show);
+  //   setShow(!show);
+  //   return show;
+  // };
 
   return (
     <div className="container">
@@ -29,7 +36,12 @@ export default function RegistryPage() {
           <li>Fulfilled</li>
         </ul>
       </div>
-      {items ? <ItemCard items={items} /> : null}
+      {items ? <ItemCard items={items} show={show} setShow={setShow} /> : null}
+      {show ? (
+        <div className="modal">
+          <Modal show={show} setShow={setShow} />
+        </div>
+      ) : null}
     </div>
   );
 }

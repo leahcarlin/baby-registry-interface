@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ItemCard.scss";
-import Modal from "../Modal";
 
 export default function ItemCard(props) {
-  const { items } = props;
-  const [show, setShow] = useState(false);
+  const { items, show, setShow } = props;
 
   return (
     <div className="item-container">
@@ -33,13 +31,14 @@ export default function ItemCard(props) {
           </div>
           <div className="purchased">
             <label>
-              <input type="checkbox" onChange={() => setShow(!show)} />
+              <input
+                type="checkbox"
+                checked={show}
+                onChange={() => setShow(!show)}
+              />
               I've purchased this
               <span className="checkmark"></span>
             </label>
-          </div>
-          <div className="modal">
-            <Modal show={show} />
           </div>
         </div>
       ))}

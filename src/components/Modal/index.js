@@ -2,9 +2,7 @@ import React from "react";
 import "./Modal.scss";
 
 export default function Modal(props) {
-  if (!props.show) {
-    return null;
-  }
+  const { show, setShow } = props;
   return (
     <div className="modal-content">
       <div className="modal-header">
@@ -12,12 +10,20 @@ export default function Modal(props) {
       </div>
       <div className="modal-body">
         <form>
-          <label>Name(s)</label>
-          <input type="text"></input>
+          <label>
+            Name(s)
+            <input type="text"></input>
+          </label>
+          <label>
+            Gift message (optional)
+            <textarea rows="4"></textarea>
+          </label>
         </form>
       </div>
       <div className="modal-footer">
-        <button className="footer-btn">Cancel</button>
+        <button className="footer-btn" onClick={() => setShow(!show)}>
+          Cancel
+        </button>
         <button className="footer-btn">Submit</button>
       </div>
     </div>

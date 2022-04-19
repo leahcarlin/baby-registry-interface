@@ -7,4 +7,53 @@
   box-shadow: rgba(249, 181, 172, 0.8) 0px 0px 0px 2px,
     rgba(238, 118, 116, 0.8) 0px 4px 6px -1px,
     rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 0;
+      input,
+      textarea {
+        padding: 5px;
+        margin-top: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background-color: #ee7674;
+      border-radius: 15px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #ffffff;
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 500;
+      height: 40px;
+      line-height: 20px;
+      list-style: none;
+      margin: 10px 10px 0 0;
+      outline: none;
+      padding: 10px 16px;
+      transition: color 100ms;
+      vertical-align: baseline;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+
+    button:hover,
+    button:focus {
+      background-color: #f9b5ac;
+    }
+  }
 }
