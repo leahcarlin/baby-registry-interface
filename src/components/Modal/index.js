@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
+import { markFulfilled, markPurchased } from "../../store/item/actions";
+import { useDispatch } from "react-redux";
 import "./Modal.scss";
 
 export default function Modal(props) {
-  const { show, setShow, setCheckValue } = props;
+  const { show, setShow, checkValue, setCheckValue } = props;
+  const [giftMessage, setGiftMessage] = useState("");
+  const [name, setName] = useState("");
+  const dispatch = useDispatch();
 
   const onCancel = () => {
     setShow(!show);
     setCheckValue(null);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    console.log(checkValue, giftMessage, name);
+    dispatch(markPurchased(checkValue, giftMessage, name));
+    dispatch(markFulfilled(checkValue));
+    setCheckValue(null);
+    setGiftMessage("");
+    setName("");
+    setShow(!show);
   };
 
   return (
@@ -18,11 +34,19 @@ export default function Modal(props) {
         <form>
           <label>
             Name(s)
-            <input type="text"></input>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            ></input>
           </label>
           <label>
             Gift message (optional)
-            <textarea rows="4"></textarea>
+            <textarea
+              rows="4"
+              value={giftMessage}
+              onChange={(e) => setGiftMessage(e.target.value)}
+            ></textarea>
           </label>
         </form>
       </div>
@@ -30,7 +54,9 @@ export default function Modal(props) {
         <button className="footer-btn" onClick={onCancel}>
           Cancel
         </button>
-        <button className="footer-btn">Submit</button>
+        <button className="footer-btn" type="submit" onClick={onSubmit}>
+          Submit
+        </button>
       </div>
     </div>
   );

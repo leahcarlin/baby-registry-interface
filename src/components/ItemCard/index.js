@@ -2,7 +2,14 @@ import React from "react";
 import "./ItemCard.scss";
 
 export default function ItemCard(props) {
-  const { items, show, handleClick } = props;
+  const { items, show, setShow, checkValue, setCheckValue } = props;
+
+  const handleClick = (e) => {
+    setShow(!show);
+    setCheckValue(e.currentTarget.value);
+    return checkValue;
+  };
+  console.log(checkValue);
 
   return (
     <div className="item-container">
@@ -31,11 +38,9 @@ export default function ItemCard(props) {
           </div>
           <div className="purchased">
             <button
-              id={item.id}
-              key={item.id}
-              value={item.id}
               type="button"
-              onClick={handleClick}
+              value={item.id}
+              onClick={(e) => handleClick(e)}
             >
               {!show ? (
                 <svg
@@ -54,7 +59,7 @@ export default function ItemCard(props) {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-check-circle"
+                  className="bi bi-check-circle"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />

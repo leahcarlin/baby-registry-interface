@@ -17,13 +17,6 @@ export default function RegistryPage() {
     dispatch(fetchAllItems);
   }, [dispatch]);
 
-  const handleClick = (e) => {
-    setShow(!show);
-    setCheckValue(e.target.value);
-    return checkValue;
-  };
-  console.log(checkValue);
-
   return (
     <div className="container">
       <div className="title">
@@ -39,11 +32,22 @@ export default function RegistryPage() {
         </ul>
       </div>
       {items ? (
-        <ItemCard items={items} show={show} handleClick={handleClick} />
+        <ItemCard
+          items={items}
+          show={show}
+          setShow={setShow}
+          checkValue={checkValue}
+          setCheckValue={setCheckValue}
+        />
       ) : null}
       {show ? (
         <div className="modal">
-          <Modal show={show} setShow={setShow} setCheckValue={setCheckValue} />
+          <Modal
+            show={show}
+            setShow={setShow}
+            checkValue={checkValue}
+            setCheckValue={setCheckValue}
+          />
         </div>
       ) : null}
     </div>

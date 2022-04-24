@@ -18,6 +18,11 @@ export default function InfoPage() {
         We know you don't speak Dutch (we barely do, either) so below are some
         tips on how to navigate with ease.
       </p>
+      <div className="ps">
+        p.s. if possible, please don't ship gifts from the United States. The
+        shipping will cost you a pretty penny and we get hit paying the import
+        tax.
+      </div>
       <div className="instructions-container">
         <div className="instructions">
           <h2>1</h2>
