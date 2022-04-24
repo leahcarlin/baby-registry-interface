@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function InfoPage() {
   return (
     <div className="info-container">
-      <h1>How it works?</h1>
+      <h1>How does it work?</h1>
       <p>
         First, we want to thank you for considering sending Baby Carlin a
         special gift!

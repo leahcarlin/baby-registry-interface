@@ -74,9 +74,25 @@
   .purchased {
     display: flex;
     justify-content: center;
+    flex-direction: row;
 
-    input {
-      margin-right: 10px;
+    svg {
+      color: #ee7674;
+    }
+
+    button {
+      border: none;
+      background-color: white;
+      display: flex;
+      flex-direction: row;
+      svg {
+        margin-right: 5px;
+      }
+    }
+  }
+  .purchased:hover {
+    p {
+      border-bottom: 2px solid #ee7674;
     }
   }
 }

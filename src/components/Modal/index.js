@@ -2,7 +2,13 @@ import React from "react";
 import "./Modal.scss";
 
 export default function Modal(props) {
-  const { show, setShow } = props;
+  const { show, setShow, setCheckValue } = props;
+
+  const onCancel = () => {
+    setShow(!show);
+    setCheckValue(null);
+  };
+
   return (
     <div className="modal-content">
       <div className="modal-header">
@@ -21,7 +27,7 @@ export default function Modal(props) {
         </form>
       </div>
       <div className="modal-footer">
-        <button className="footer-btn" onClick={() => setShow(!show)}>
+        <button className="footer-btn" onClick={onCancel}>
           Cancel
         </button>
         <button className="footer-btn">Submit</button>

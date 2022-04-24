@@ -2,6 +2,7 @@ import { ITEMS_FETCHED } from "./actions";
 
 const initialState = {
   allItems: null,
+  selectedId: undefined,
 };
 
 export default function reducer(state = initialState, action) {

@@ -11,16 +11,18 @@ export default function RegistryPage() {
   const dispatch = useDispatch();
   const items = useSelector(selectAllItems);
   const [show, setShow] = useState(false);
+  const [checkValue, setCheckValue] = useState(null);
 
   useEffect(() => {
     dispatch(fetchAllItems);
   }, [dispatch]);
 
-  // const showModal = () => {
-  //   console.log("show?", show);
-  //   setShow(!show);
-  //   return show;
-  // };
+  const handleClick = (e) => {
+    setShow(!show);
+    setCheckValue(e.target.value);
+    return checkValue;
+  };
+  console.log(checkValue);
 
   return (
     <div className="container">
@@ -36,10 +38,12 @@ export default function RegistryPage() {
           <li>Fulfilled</li>
         </ul>
       </div>
-      {items ? <ItemCard items={items} show={show} setShow={setShow} /> : null}
+      {items ? (
+        <ItemCard items={items} show={show} handleClick={handleClick} />
+      ) : null}
       {show ? (
         <div className="modal">
-          <Modal show={show} setShow={setShow} />
+          <Modal show={show} setShow={setShow} setCheckValue={setCheckValue} />
         </div>
       ) : null}
     </div>
