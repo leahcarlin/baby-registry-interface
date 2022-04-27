@@ -1,0 +1,41 @@
+.add-item-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #dce8d9;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 15px;
+  form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 80px;
+
+    label {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    input {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0 8px 8px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 300px;
+    }
+  }
+}
+.item-list-container {
+  table {
+    width: 80%;
+    text-align: left;
+    border-radius: 15px;
+    background-color: #dce8d9;
+    margin: 20px;
+    padding: 20px;
+  }
+}
