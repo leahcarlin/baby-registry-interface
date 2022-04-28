@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectNeeded } from "../../store/item/selectors";
+import { fetchNeededItems } from "../../store/item/actions";
+import Loading from "../Loading";
 import "./ItemCard.scss";
 
 export default function ItemCard(props) {
-  const { items, stillNeed, show, setShow, checkValue, setCheckValue } = props;
+  const { show, setShow, checkValue, setCheckValue } = props;
+  const dispatch = useDispatch();
+  const stillNeed = useSelector(selectNeeded);
+
+  useEffect(() => {
+    dispatch(fetchNeededItems);
+  }, [dispatch]);
 
   const handleClick = (e) => {
     setShow(!show);
@@ -11,9 +21,11 @@ export default function ItemCard(props) {
   };
   console.log("item value", checkValue);
 
+  if (!stillNeed) return <Loading />;
+
   return (
     <div className="item-container">
-      {items
+      {stillNeed
         ? stillNeed.map((item) => (
             <div className="card-container" key={item.id}>
               <a target="_blank" rel="noreferrer" href={item.itemUrl}>

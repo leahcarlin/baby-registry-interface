@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import "../ItemCard/ItemCard.scss";
+import { fetchFulfilledItems } from "../../store/item/actions";
+import { selectFulfilled } from "../../store/item/selectors";
+import Loading from "../Loading";
 
-export default function ItemCardFulfilled(props) {
-  const { items, fulfilled } = props;
+export default function ItemCardFulfilled() {
+  const dispatch = useDispatch();
+  const fulfilled = useSelector(selectFulfilled);
+
+  useEffect(() => {
+    dispatch(fetchFulfilledItems);
+  }, [dispatch]);
+
+  if (!fulfilled) return <Loading />;
 
   return (
     <div className="item-container">
-      {items
+      {fulfilled
         ? fulfilled.map((item) => (
             <div
               className="card-container"

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import "./Modal.scss";
 
 export default function Modal(props) {
-  const { show, setShow, checkValue, setCheckValue } = props;
+  const { show, setShow, checkValue, setCheckValue, setFilter } = props;
   const [giftMessage, setGiftMessage] = useState("");
   const [name, setName] = useState("");
   const dispatch = useDispatch();
@@ -23,6 +23,7 @@ export default function Modal(props) {
     setGiftMessage("");
     setName("");
     setShow(!show);
+    setFilter("fulfilled");
   };
 
   return (

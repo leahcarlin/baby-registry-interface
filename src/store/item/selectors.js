@@ -1,11 +1,5 @@
 export const selectAllItems = (state) => state.item.allItems;
 
-export const selectNeeded = (state) =>
-  state.item.allItems.filter((item) => {
-    return item.fulfilled === false;
-  });
+export const selectNeeded = (state) => state.item.needed;
 
-export const selectFulfilled = (state) =>
-  state.item.allItems.filter((item) => {
-    return item.fulfilled === true;
-  });
+export const selectFulfilled = (state) => state.item.fulfilled;

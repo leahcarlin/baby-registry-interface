@@ -12,7 +12,10 @@
     padding-left: 0;
 
     li {
+      font-size: 16px;
+      font-weight: 500;
       span {
+        font-weight: 500;
         padding: 12px 20px;
         border-radius: 20px;
         margin-left: 20px;
@@ -22,7 +25,6 @@
         box-sizing: border-box;
         color: #ffffff;
         display: inline-block;
-        font-size: 14px;
         font-weight: 500;
         height: 40px;
         line-height: 20px;

@@ -1,47 +1,97 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../AdminPage/AdminPage.scss";
-import { fetchAllItems } from "../../store/item/actions";
+import {
+  addNewItem,
+  fetchAllItems,
+  deleteItem,
+} from "../../store/item/actions";
 import { selectAllItems } from "../../store/item/selectors";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function AdminPage() {
   const dispatch = useDispatch();
   const items = useSelector(selectAllItems);
-  console.log("items?", items);
+  const [title, setTitle] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [price, setPrice] = useState(0);
+  const [itemUrl, setItemUrl] = useState("");
+  const [shortUrl, setShortUrl] = useState("");
+  const [details, setDetails] = useState("");
 
   useEffect(() => {
     dispatch(fetchAllItems);
   }, [dispatch]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(addNewItem(title, imgUrl, price, itemUrl, shortUrl, details));
+    setTitle("");
+    setImgUrl("");
+    setPrice(0);
+    setItemUrl("");
+    setShortUrl("");
+    setDetails("");
+  };
 
   return (
     <div>
       <h2>Admin Page</h2>
       <h4>Add an item</h4>
       <div className="add-item-container">
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             Title:
-            <input type="text" name="title" />
+            <input
+              type="text"
+              name="title"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </label>
           <label>
             Image Url:
-            <input type="url" name="imgUrl" />
+            <input
+              type="url"
+              name="imgUrl"
+              value={imgUrl}
+              onChange={(e) => setImgUrl(e.target.value)}
+            />
           </label>
           <label>
             Price:
-            <input type="number" name="price" />
+            <input
+              type="number"
+              name="price"
+              value={price}
+              onChange={(e) => setPrice(e.target.value)}
+            />
           </label>
           <label>
             Item Url:
-            <input type="url" name="itemUrl" />
+            <input
+              type="url"
+              name="itemUrl"
+              value={itemUrl}
+              onChange={(e) => setItemUrl(e.target.value)}
+            />
           </label>
           <label>
             Short Url:
-            <input type="url" name="shortUrl" />
+            <input
+              type="text"
+              name="shortUrl"
+              value={shortUrl}
+              onChange={(e) => setShortUrl(e.target.value)}
+            />
           </label>
           <label>
             Details:
-            <input type="text" name="details" />
+            <input
+              type="text"
+              name="details"
+              value={details}
+              onChange={(e) => setDetails(e.target.value)}
+            />
           </label>
           <input type="submit" name="submit" />
         </form>
@@ -67,7 +117,9 @@ export default function AdminPage() {
                   <td>{item.sender ? item.sender.name : null}</td>
                   <td>{item.sender ? item.sender.giftMessage : null}</td>
                   <td>
-                    <button>x</button>
+                    <button onClick={() => dispatch(deleteItem(item.id))}>
+                      x
+                    </button>
                   </td>
                 </tr>
               ))}

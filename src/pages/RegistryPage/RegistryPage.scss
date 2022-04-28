@@ -10,8 +10,12 @@
 
     h2 {
       margin-bottom: 10px;
+      font-family: "Sacramento", cursive;
+      font-size: 36px;
+      font-weight: 300;
     }
     p {
+      font-size: 18px;
       margin: 0;
       background-image: linear-gradient(120deg, #e072a4 0%, #ee7674 100%);
       background-repeat: no-repeat;
@@ -36,7 +40,7 @@
         button {
           background-color: #dce8d9;
           border: none;
-          font-size: 16px;
+          font-size: 18px;
         }
         button:hover {
           border-bottom: 2px solid #ee7674;
