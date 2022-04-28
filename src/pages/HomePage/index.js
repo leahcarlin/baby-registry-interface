@@ -13,7 +13,7 @@ export default function HomePage() {
             Arrival Date <span>July 9, 2022</span>
           </h3>
           <div className="button-container">
-            <Link className="button" to="/registry">
+            <Link className="button" to="/more-info">
               <button>How It Works</button>
             </Link>
             <Link className="button" to="/registry">
