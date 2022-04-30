@@ -143,6 +143,7 @@ export const addNewItem =
 export const deleteItem = (id) => async (dispatch, getState) => {
   try {
     const res = await axios.delete(`${apiUrl}/items/${id}/remove`);
+    console.log("res", res.data);
     dispatch(itemDeleteSuccess(id));
   } catch (e) {
     console.log(e.message);
