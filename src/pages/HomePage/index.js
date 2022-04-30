@@ -5,9 +5,9 @@ import "./HomePage.scss";
 export default function HomePage() {
   return (
     <div className="container">
-      <section class="hero">
-        <div class="background-image"></div>
-        <div class="hero-content-area">
+      <section className="hero">
+        <div className="background-image"></div>
+        <div className="hero-content-area">
           <h1>Baby Carlin Registry</h1>
           <h3>
             Arrival Date <span>July 9, 2022</span>
