@@ -68,6 +68,9 @@ export default function InfoPage() {
             <p>
               Netherlands <span>(Country)</span>
             </p>
+            <p>
+              +31 06 82812530 <span>(Phone number, if needed)</span>
+            </p>
             <div className="divider"></div>
           </div>
         </div>
