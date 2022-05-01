@@ -34,7 +34,13 @@ export default function ItemCard(props) {
                 </div>
               </a>
               <h3>{item.title}</h3>
-              <p>{item.details}</p>
+              {item.details ? (
+                <p>{item.details}</p>
+              ) : (
+                <p>
+                  <br></br>
+                </p>
+              )}
               <div className="details">
                 <p>
                   <strong>Buy Directly From</strong>
